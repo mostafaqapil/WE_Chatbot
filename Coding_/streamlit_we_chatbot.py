@@ -2,20 +2,13 @@ import streamlit as st
 from PIL import Image
 import os
 from rag_pipeline import ask_we_bot, add_user_documents
-
-# ----------------------------
-# Page Config
-# ----------------------------
 st.set_page_config(
     page_title="WE Chatbot",
     page_icon="📱",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-
-# ----------------------------
 # Custom CSS for full screen, buttons, chat bubbles
-# ----------------------------
 st.markdown("""
 <style>
 body, .block-container {
@@ -27,13 +20,13 @@ body, .block-container {
 /* Title font bold and darker */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: #1a1a1a;  /* نص داكن */
+    color: #1a1a1a;  
 }
 
 /* Landing Page welcome text */
 .landing-text {
-    color: #1a1a1a;       /* نص داكن */
-    font-size: 28px;      /* حجم أكبر */
+    color: #1a1a1a;       
+    font-size: 28px;     
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
@@ -70,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 .user-msg {
     text-align:right;
     background-color:#ffe6e6;
-    color: #1a1a1a;       /* نص داكن */
+    color: #1a1a1a;      
     padding:16px;
     border-radius:20px 20px 0 20px;
     margin:5px 0;
@@ -83,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 .bot-msg {
     text-align:left;
     background-color:#fff2e6;
-    color: #1a1a1a;       /* نص داكن */
+    color: #1a1a1a;      
     padding:16px;
     border-radius:20px 20px 20px 0;
     margin:5px 0;
@@ -111,25 +104,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 </style>
 """, unsafe_allow_html=True)
-
-# ----------------------------
-# Session State
-# ----------------------------
 if 'chat_started' not in st.session_state:
     st.session_state.chat_started = False
 if 'history' not in st.session_state:
     st.session_state.history = []
 
-# ----------------------------
-# Landing Page
-# ----------------------------
 if not st.session_state.chat_started:
     st.markdown('<div class="full-screen">', unsafe_allow_html=True)
     img_path = "D:\\IMG-20230110-WA0017.jpg"
     if os.path.exists(img_path):
-        st.image(img_path, use_column_width=True, caption=None)
-    
-    # نص الترحيب الواضح
+        st.image(img_path, use_column_width=True, caption=None)    
     st.markdown('<div class="landing-text">Welcome to WE Chatbot<br>Your intelligent assistant for all Telecom Egypt (WE) services.</div>', unsafe_allow_html=True)
     
     # START button at bottom
@@ -139,16 +123,9 @@ if not st.session_state.chat_started:
         st.rerun()
     st.markdown("</div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
-
-# ----------------------------
 # Chat Page
-# ----------------------------
 else:
     st.subheader("WE Chat Support")
-
-    # ----------------------------
-    # Upload Documents
-    # ----------------------------
     uploaded_files = st.file_uploader(
         "Upload Documents (PDF, DOCX, TXT, HTML, Images)",
         type=["pdf","docx","txt","html","jpg","jpeg","png"], 
@@ -164,10 +141,6 @@ else:
             file_paths.append(save_path)
         add_user_documents(file_paths)
         st.success(f"Added {len(file_paths)} document(s) successfully!")
-
-    # ----------------------------
-    # Quick Questions as clickable bubbles
-    # ----------------------------
     st.markdown("**Quick Questions:**")
     quick_buttons = [
         "How to activate WE Pay?", "How to subscribe to a plan?",
@@ -178,20 +151,13 @@ else:
             st.session_state.history.append(("user", btn))
             answer, sources = ask_we_bot(btn)
             st.session_state.history.append(("bot", answer, sources))
-
-    # ----------------------------
-    # User input
-    # ----------------------------
     user_input = st.text_input("Type your question here (English / Arabic):", key="user_input")
     if st.button("Send", key="send") and user_input.strip() != "":
         st.session_state.history.append(("user", user_input))
         answer, sources = ask_we_bot(user_input)
         st.session_state.history.append(("bot", answer, sources))
-        st.session_state.user_input = ""  # Clear input
+        st.session_state.user_input = ""  
 
-    # ----------------------------
-    # Display chat history clearly
-    # ----------------------------
     for entry in st.session_state.history:
         if entry[0] == "user":
             st.markdown(f"<div class='user-msg'>{entry[1]}</div>", unsafe_allow_html=True)

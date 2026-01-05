@@ -111,7 +111,7 @@ if 'history' not in st.session_state:
 
 if not st.session_state.chat_started:
     st.markdown('<div class="full-screen">', unsafe_allow_html=True)
-    img_path = "D:\\IMG-20230110-WA0017.jpg"
+    img_path = "IMG-20230110-WA0017.jpg"
     if os.path.exists(img_path):
         st.image(img_path, use_column_width=True, caption=None)    
     st.markdown('<div class="landing-text">Welcome to WE Chatbot<br>Your intelligent assistant for all Telecom Egypt (WE) services.</div>', unsafe_allow_html=True)

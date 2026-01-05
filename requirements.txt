@@ -1,0 +1,13 @@
+streamlit==1.26.0
+selenium==4.15.0
+chromedriver-py==109.0.5414.74
+beautifulsoup4==4.12.2
+PyPDF2==3.1.0
+python-docx==0.8.11
+pillow==10.0.0
+pytesseract==0.3.10
+torch==2.2.0
+sentence-transformers==2.2.2
+transformers==4.34.0
+faiss-cpu==1.7.4
+numpy==1.26.0

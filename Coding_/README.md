@@ -1,15 +1,12 @@
  WE Chatbot – RAG-based Customer Support Assistant
-
  An intelligent Retrieval-Augmented Generation (RAG) chatbot designed to provide accurate, bilingual customer support for Telecom Egypt (WE) using official website content and documents.
 This project is a proof-of-concept demonstrating real-world RAG system design, focusing on accuracy, explainability, and production readiness.
 
 Project Overview
-
 Traditional chatbots often hallucinate answers or rely on outdated information.
 WE Chatbot solves this by grounding every response in retrieved official content from WE sources.
 
 Key goals:
-
 1.Accurate answers
 2.Arabic & English support (including Egyptian Arabic)
 3.Source-grounded responses
@@ -69,7 +66,7 @@ WE_Chatbot/
 Setup Instructions
 
 - Clone the Repository
-git clone https://github.com/your-username/WE_Chatbot.git
+git clone https://github.com/mostafaqapil/WE_Chatbot.git
 cd WE_Chatbot
 
 - Create Virtual Environment
@@ -83,4 +80,5 @@ Note: Some ML dependencies may fail on Streamlit Cloud due to resource limits.
 
 - Run the Application
 streamlit run streamlit_we_chatbot.py
+
 The chatbot UI will open in your browser.

@@ -38,8 +38,9 @@ WE_Chatbot/
 ├── images/
 │   └── we_landing.jpg
 └── README.md
----
-## Setup Instructions
+```
+
+# Setup Instructions
 1.Clone Repository
 2.Create Virtual Environment
 3.Install Dependencies / requirements.txt

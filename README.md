@@ -29,7 +29,7 @@ This project demonstrates practical RAG implementation, system design thinking, 
 ```text
 WE_Chatbot/
 │
-├── app.py
+├── streamlit_we_chatbot.py
 ├── rag_pipeline.py
 ├── requirements.txt
 ├── data/

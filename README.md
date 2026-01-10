@@ -48,7 +48,7 @@ WE_Chatbot/
 
 # Streamlit Demo
 -A short demo video showcasing the Streamlit UI and RAG interaction workflow.
-Demo Video:
+Demo Video: https://drive.google.com/drive/folders/1qZ5WzQRwksPgMPN2j67foi1hji0KFVFC?usp=sharing
 
 # Known Limitations
 - Full embedding generation is resource-intensive
